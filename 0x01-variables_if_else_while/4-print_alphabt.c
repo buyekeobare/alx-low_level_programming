@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 /**
  * main - Entry point
  *
@@ -8,17 +6,16 @@
  */
 int main(void)
 {
-	int n;
+	char lw, e, q;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
+	e = 'e';
+	q = 'q';
 
-	if (n > 0)
-		printf("%d is positive\n", n);
-	else if (n == 0)
-		printf("%d is zero\n", n);
-	else
-		printf("%d is negative\n", n);
+	for (lw = 'a'; lw <= 'z'; lw++)
+	putchar (lw);
 
+	if (lw != e && lw != q)
+	putchar (lw);
+	putchar ('\n');	
 	return (0);
 }
