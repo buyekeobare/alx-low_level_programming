@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_most_numbers - print num except 2 and 4
+ * print_most_numbers - print numbers 01356789 except 2 and 4
  *
- * return: void
+ * Return: Always 0 (Success)
  */
 
 void print_most_numbers(void)
