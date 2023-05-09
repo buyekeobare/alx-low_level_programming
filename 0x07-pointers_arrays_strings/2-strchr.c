@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _strchr - locates a character in a string
- * @s: input values
- * @c: input values
+ * _strchr - Entry point
+ * @s: input
+ * @c: input
  * Return: Always 0 (Success)
  */
 char *_strchr(char *s, char c)
@@ -15,4 +15,3 @@ char *_strchr(char *s, char c)
 			return (&s[i]);
 	}
 	return (0);
-
