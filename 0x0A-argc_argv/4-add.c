@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		for (i = 1; 1 < argc; i++)
+		for (i = 1; i < argc; i++)
 		{
 			str = argv[i];
 			for (j = 0; str[j] != '\0'; j++)
