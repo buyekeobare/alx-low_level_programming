@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * main - multiplies two numbers
+ * main - Write a program that multiplies two numbers
  * @argc: number of arguments
  * @argv: array of arguments
  *
@@ -10,15 +10,17 @@
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2;
+	int nums, multiplication;
 
-	if (argc == 1)
+	if (argc < 3)
 	{
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	printf("%d\n", num1 * num2);
-	return (0);
+		printf("Error\n");
+		return (1);
 	}
-	printf("Error\n");
-	return (1);
+	for (nums = 1; nums < argc; nums++)
+	{
+		multiplication = multiplication * atoi(argv[nums]);
+	}
+	printf("%d\n", multiplication);
+	return (0);
 }
