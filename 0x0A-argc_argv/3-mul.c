@@ -10,16 +10,16 @@
  */
 int main(int argc, char *argv[])
 {
-	int nums, multiplication;
+	int index, multiplication;
 
 	if (argc < 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (nums = 1; nums < argc; nums++)
+	for (index = 1; nums < argc; index++)
 	{
-		multiplication = multiplication * atoi(argv[nums]);
+		multiplication = multiplication * atoi(argv[index]);
 	}
 	printf("%d\n", multiplication);
 	return (0);
