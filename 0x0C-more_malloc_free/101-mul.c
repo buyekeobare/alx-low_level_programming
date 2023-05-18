@@ -68,7 +68,7 @@ carry = 0;
 for (num2 = _strlen(s2) - 1; num2 >= 0; num2--)
 {
 digit2 = s2[num2] - '0';
-carry += sum[num1 + num2 + 1] + (digit1 * digit2);
+carry += sum[num1 + num2 + 1] + (digit1 *digit2);
 sum[num1 + num2 + 1] = carry % 10;
 carry /= 10;
 }
