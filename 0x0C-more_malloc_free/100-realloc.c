@@ -30,12 +30,12 @@ old_ptr = ptr;
 if (new_size < old_size)
 {
 for (i = 0; i < new_size; i++)
-(ptr1 + i) = *(old_ptr + i);
+ptr1[i] = old_ptr[i];
 }
 if (new_size > old_size)
 {
 for (i = 0; i < old_size; i++)
-*(ptr1 + i) = *(old_ptr + i);
+ptr1[i] = old_ptr[i];
 }
 free(ptr);
 return (ptr1);
