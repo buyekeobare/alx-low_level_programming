@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * Entry - before the main function is executed
+ * bmain - function is executed before the main
  * Return: no return
  */
 
