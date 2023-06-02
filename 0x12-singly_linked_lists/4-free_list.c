@@ -6,7 +6,7 @@
 /**
  * free_list - frees a list_t list
  * @head: pointer to the first node of the linked list
- * Return: 0 (Success)
+ * Return: no return
  */
 
 void free_list(list_t *head)
