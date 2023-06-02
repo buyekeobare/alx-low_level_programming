@@ -9,18 +9,16 @@
  */
 
 size_t list_len(const list_t *h)
-{	
-	int num;
-	num = 0;
+{
+	size_t eleNum;
 
-	if (h == NULL)
-		return (0);
+	eleNum = 0;
 
 	while (h != NULL)
 	{
-		if (h->str != NULL)
-			num++;
+
+		eleNum++;
 		h = h->next;
 	}
-	return (num);
+	return (eleNum);
 }
