@@ -27,7 +27,7 @@ listint_t *find_listint_loop(listint_t *head)
 				current2 = current;
 				while (current2->next != head && current2->next != current)
 				{
-					current = current2->next;
+					current2 = current2->next;
 				}
 				if (current2->next == head)
 					break;
