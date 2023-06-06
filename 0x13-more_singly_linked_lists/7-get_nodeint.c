@@ -4,7 +4,7 @@
  * get_nodeint_at_index - returns the nth node of a linked list
  * @head: Pointer to the first node of the linked list.
  * @index: index of the node.
- * Return: nth node. If node does not exist, returns NULL.
+ * Return: nth node, NULL if node does not exist.
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
@@ -13,7 +13,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 	temp = head;
 
-	for (i = 0; i < index && head != NULL; i++)
+	for (i = 0; i < index && temp != NULL; i++)
 	{
 		temp = temp->next;
 	}
