@@ -1,21 +1,21 @@
 #include "main.h"
 
 /**
-* clear_bit - a function that clears the value of a bit at a given index
-* @n: the number to be operated on
+* clear_bit - clears the value of a bit at a given index
+* @n: the number to be evaluated
 * @index: the index
 * Return: returns 1 (Success), -1 (error)
 */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	int mask;
+	int m;
 
 	if (index > 63)
 		return (-1);
 
-	mask = 1 << index;
+	m = 1 << index;
 
-	*n = (*n & ~mask);
+	*n = (*n & ~m);
 
 	return (1);
 }
