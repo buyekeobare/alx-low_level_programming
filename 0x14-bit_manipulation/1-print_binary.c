@@ -15,14 +15,15 @@ void print_binary(unsigned long int n)
 	{
 		uli = n >> i;
 
-		if ((uli & 1) == 1)
+		if (uli & 1)
 		{
 			_putchar('1');
 			j++;
 		}
-		else if (j != 0)
+		else if (j)
 			_putchar('0');
 	}
-	if (j == 0)
+	if (!j)
 		_putchar('0');
 }
+
