@@ -9,22 +9,20 @@ include "main.h"
 void print_binary(unsigned long int n)
 {
 	unsigned long int uli;
-	int i;
+	int i, j = 0;
 
-	if (n == 0)
+	for (i = 63; i >= 0; i--)
 	{
-		printf("0");
-		return;
-	}
+		uli = n >> i;
 
-	for (uli = n, i = 0; (uli >>= 1) > 0; i++)
-		;
-
-	for (; i >= 0; i--)
-	{
-		if ((n >> i) & 1)
-			printf("1");
-		else
-			printf("0");
+		if ((uli & 1) == 1)
+		{
+			_putchar('1');
+			j++;
+		}
+		else if (j != 0)
+			_putchar('0');
 	}
+	if (j == 0)
+		_putchar('0');
 }
