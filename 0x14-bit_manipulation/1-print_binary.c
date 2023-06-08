@@ -2,27 +2,27 @@
 #include <stddef.h>
 
 /**
- * print_binary - print binary representation of a number
+ * print_binary - prints the binary representation of a number.
  * @n: unsigned long int to be printed in binary form
- * Return: nothing.
+ * Return: void
  */
 void print_binary(unsigned long int n)
 {
-	int i, c = 0;
-	unsigned long int current;
+	int i, j = 0;
+	unsigned long int uli;
 
 	for (i = 63; i >= 0; i--)
 	{
-		current = n >> i;
+		uli = n >> i;
 
-		if ((current & 1) == 1)
+		if ((uli & 1) == 1)
 		{
 			_putchar('1');
-			c++;
+			j++;
 		}
-		else if (c != 0)
+		else if (j != 0)
 			_putchar('0');
 	}
-	if (c == 0)
+	if (j == 0)
 		_putchar('0');
 }
