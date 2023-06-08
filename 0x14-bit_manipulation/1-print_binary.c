@@ -8,22 +8,21 @@ include "main.h"
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int uli;
-	int i, j = 0;
+	int i, c = 0;
+	unsigned long int current;
 
 	for (i = 63; i >= 0; i--)
 	{
-		uli = n >> i;
+		current = n >> i;
 
-		if (uli & 1)
+		if ((current & 1) == 1)
 		{
 			_putchar('1');
-			j++;
+			c++;
 		}
-		else if (j)
+		else if (c != 0)
 			_putchar('0');
 	}
-	if (!j)
+	if (c == 0)
 		_putchar('0');
 }
-
