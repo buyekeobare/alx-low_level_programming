@@ -3,6 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+<<<<<<< HEAD
+=======
+#include <stddef.h>
+#include <math.h>
+>>>>>>> d83fddab16efed41502cc2fe9dee8e4534f88039
 
 /**
 * struct listint_s - singly linked list
@@ -34,4 +39,8 @@ size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
+<<<<<<< HEAD
 #endif 
+=======
+#endif
+>>>>>>> d83fddab16efed41502cc2fe9dee8e4534f88039

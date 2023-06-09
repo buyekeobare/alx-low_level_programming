@@ -17,3 +17,7 @@ size_t print_listint(const listint_t *h)
 	}
 	return (numNodes);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> d83fddab16efed41502cc2fe9dee8e4534f88039
