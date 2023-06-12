@@ -2,37 +2,34 @@
 
 /**
  * create_file - creates a file
- * @filename: filename.
- * @text_content: content writed in the file.
- *
+ * @filename: Pointer to a file name.
+ * @text_content: content written in the file.
  * Return: 1 if it success. -1 if it fails.
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	int nletters;
-	int rwr;
+	int file, lttrs, wr;
 
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 
-	if (fd == -1)
+	if (file == -1)
 		return (-1);
 
 	if (!text_content)
 		text_content = "";
 
-	for (nletters = 0; text_content[nletters]; nletters++)
+	for (lttrs = 0; text_content[lttrs]; lttrs++)
 		;
 
-	rwr = write(fd, text_content, nletters);
+	wr = write(file, text_content, lttrs);
 
-	if (rwr == -1)
+	if (wr == -1)
 		return (-1);
 
-	close(fd);
+	close(file);
 
 	return (1);
 }
