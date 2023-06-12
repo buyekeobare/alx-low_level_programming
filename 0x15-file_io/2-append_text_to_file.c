@@ -3,7 +3,7 @@
 /**
  * append_text_to_file - appends text at the end of a file
  * @filename: Pointer to the file name.
- * @text_content: Pointer to written content 
+ * @text_content: Pointer to written content
  * Return: 1 if the file exists. -1 if the fails does not exist
  * or if it fails.
  */
