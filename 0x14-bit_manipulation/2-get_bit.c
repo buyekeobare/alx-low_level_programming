@@ -8,12 +8,12 @@
 */
 int get_bit(unsigned long int n, unsigned int index)
 {
-unsigned long int num, verify;
+unsigned long int div_num, confirm;
 if (index > (sizeof(unsigned long int) * 8 - 1))
 return (-1);
-num = 1 << index;
-verify = n & num;
-if (verify == num)
+div_num = 1 << index;
+confirm = n & div_num;
+if (confirm == div_num)
 return (1);
 return (0);
 }
