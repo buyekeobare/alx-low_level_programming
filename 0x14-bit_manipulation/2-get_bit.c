@@ -1,28 +1,19 @@
-#include "main.h"
-#include <stdio.h>
-
+#include"main.h"
 /**
- * print_binary - prints the binary equivalent of a decimal number
- * @n: number to print in binary
- */
-void print_binary(unsigned long int n)
+* get_bit - progrom returns the value of a bit at a given index.
+* @n: number to check bits
+* @index: index at which to check bit
+*
+* Return: value of the bit, or -1 for error
+*/
+int get_bit(unsigned long int n, unsigned int index)
 {
-	int i, count = 0;
-	unsigned long int current;
-
-	for (i = 63; i >= 0; i--)
-	{
-		current = n >> i;
-
-		if (current & 1)
-		{
-			_putchar('1');
-			count++;
-		}
-		else if (count)
-			_putchar('0');
-	}
-	if (!count)
-		_putchar('0');
+unsigned long int num, verify;
+if (index > (sizeof(unsigned long int) * 8 - 1))
+return (-1);
+num = 1 << index;
+verify = n & num;
+if (verify == num)
+return (1);
+return (0);
 }
-
