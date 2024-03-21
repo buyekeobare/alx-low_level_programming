@@ -1,49 +1,65 @@
 #include "lists.h"
-
 /**
- * insert_dnodeint_at_index - inserts a new node at a given position
- * @h: pointer to a pointer
- * @idx: index of the list where new node will be added
- * @n:the element to be added
- *
- * Return: address of new node || NULL on failure
- */
-
+  * insert_dnodeint_at_index - inserts a new node at a given position
+  * @h: head pointer
+  * @idx: index where to add the node
+  * @n: the value of the node
+  * Return: pointer to newNode or NULL
+  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_node, *tmp = *h;
-	unsigned int i = 0;
+	dlistint_t *newNode, *temp;
+	size_t len = dlistint_len(*h);
+	unsigned int i;
 
-	if (h == NULL)
+	if (h == NULL || idx > len)
+	{
 		return (NULL);
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
-		return (NULL);
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = NULL;
-
+	}
 	if (idx == 0)
 	{
-		if (*h != NULL)
-			(*h)->prev = new_node;
-		new_node->next = *h;
-		*h = new_node;
+		return (add_dnodeint(h, n));
 	}
-
-	while (i < idx - 1)
+	if (idx == len)
 	{
-		if (tmp == NULL)
-			return (NULL);
-		tmp = tmp->next;
-		i++;
+		return (add_dnodeint_end(h, n));
 	}
-	if (tmp == NULL)
+	newNode = malloc(sizeof(dlistint_t));
+
+	if (newNode == NULL)
+	{
 		return (NULL);
-	new_node->next = tmp->next;
-	new_node->prev = tmp;
-	if (tmp->next == new_node)
-		tmp->next->prev = new_node;
-	tmp->next = new_node;
-	return (new_node);
+	}
+	newNode->n = n;
+	temp = *h;
+	for (i = 0; i < idx - 1; i++)
+	{
+		temp = temp->next;
+	}
+	newNode->next = temp->next;
+	newNode->prev = temp;
+
+	if (temp->next != NULL)
+	{
+		temp->next->prev = newNode;
+	}
+	temp->next = newNode;
+	return (newNode);
+}
+/**
+  * dlistint_len -returns the number of elements in a linked dlistint_t list
+  * @h: pointer to head of double linked list
+  * Return: number of elements
+  */
+size_t dlistint_len(const dlistint_t *h)
+{
+size_t i = 0;
+const dlistint_t *temp = h;
+
+while (temp != NULL)
+{
+temp = temp->next;
+++i;
+}
+return (i);
 }

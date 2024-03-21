@@ -1,58 +1,35 @@
 #include "lists.h"
-
 /**
- * add_dnodeint - adds a new node at the beginning of a dlistint_t list
- * @head: pointer to a pointer to the head of the list
- * @n: element to be added
- *
- * Return: address of the new element || NULL if it failed
- */
-
+  * add_dnodeint - adds a new node at the beginning of a dlistint_t list
+  * @head: pointer to head pointer of the list
+  * @n: data of the new node
+  * Return: the address of the new element, or NULL if it failed
+  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-	dlistint_t *new_node;
+	dlistint_t *newNode;
 
-	new_node = malloc(sizeof(dlistint_t));
-
-	if (new_node == NULL)
+	if (head == NULL)
+	{
 		return (NULL);
-
-	new_node->n = n;
-#include "lists.h"
-
-/**
-#include "lists.h"
-
-/**
-#include "lists.h"
-
-/**
-#include "lists.h"
-
-/**
- * add_dnodeint - adds a new node at the beginning of a dlistint_t list
- * @head: pointer to a pointer to the head of the list
- * @n: element to be added
- *
- * Return: address of the new element || NULL if it failed
- */
-
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
-{
-	dlistint_t *new_node;
-
-	new_node = malloc(sizeof(dlistint_t));
-
-	if (new_node == NULL)
+	}
+	newNode = (dlistint_t *)malloc(sizeof(struct dlistint_s));
+	if (newNode == NULL)
+	{
+		free(newNode);
 		return (NULL);
-
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = *head;
-
-	if (*head != NULL)
-		(*head)->prev = new_node;
-
-	*head = new_node;
-	return (new_node);
+	}
+	newNode->n = n;
+	if (*head == NULL)
+	{
+		newNode->next = NULL;
+		newNode->prev = NULL;
+		*head = newNode;
+		return (newNode);
+	}
+	newNode->next = *head;
+	newNode->prev = NULL;
+	(*head)->prev = newNode;
+	*head = newNode;
+	return (newNode);
 }
