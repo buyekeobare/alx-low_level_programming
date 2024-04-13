@@ -150,7 +150,7 @@ void assign(shash_node_t *new, shash_table_t *ht)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *head, *new, *temp;
-	unsigned long int index;
+	unsigned long int i;
 
 	if (ht == NULL || key == NULL)
 		return (0);
@@ -160,15 +160,15 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (new == NULL)
 		return (0);
 
-	index = key_index((const unsigned char *)key, ht->size);
+	i = key_i((const unsigned char *)key, ht->size);
 
-	if (ht->array[index] == NULL)
+	if (ht->array[i] == NULL)
 	{
 		assign(new, ht);
-		ht->array[index] = new;
+		ht->array[i] = new;
 		return (1);
 	}
-	head = ht->array[index];
+	head = ht->array[i];
 	temp = head;
 
 	while (temp != NULL)
@@ -185,12 +185,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	assign(new, ht);
 	new->next = head;
-	ht->array[index] = new;
+	ht->array[i] = new;
 	return (1);
 }
 
 /**
- * shash_table_get - etrieves a value associated with a key
+ * shash_table_get - retrieves a value associated with a key
  * @ht: double pointer of type shash_table_t for hash table.
  * @key: const char pointer for unique value to be searched for.
  * Return: the value associated with the element found, NULL if key couldn't be
@@ -200,17 +200,17 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 	shash_node_t *temp;
-	unsigned long int index;
+	unsigned long int i;
 
 	if (ht == NULL || key == NULL)
 		return (NULL);
 
-	index = key_index((const unsigned char *)key, ht->size);
+	i = key_i((const unsigned char *)key, ht->size);
 
-	if (ht->array[index] == NULL)
+	if (ht->array[i] == NULL)
 		return (NULL);
 
-	temp = ht->array[index];
+	temp = ht->array[i];
 
 	while (temp != NULL)
 	{
