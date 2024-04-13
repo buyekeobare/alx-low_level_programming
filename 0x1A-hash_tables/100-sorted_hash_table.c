@@ -150,7 +150,7 @@ void assign(shash_node_t *new, shash_table_t *ht)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *head, *new, *temp;
-	unsigned long int i;
+	unsigned long int index;
 
 	if (ht == NULL || key == NULL)
 		return (0);
@@ -160,15 +160,15 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (new == NULL)
 		return (0);
 
-	i = key_i((const unsigned char *)key, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
 
-	if (ht->array[i] == NULL)
+	if (ht->array[index] == NULL)
 	{
 		assign(new, ht);
-		ht->array[i] = new;
+		ht->array[index] = new;
 		return (1);
 	}
-	head = ht->array[i];
+	head = ht->array[index];
 	temp = head;
 
 	while (temp != NULL)
@@ -185,7 +185,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	assign(new, ht);
 	new->next = head;
-	ht->array[i] = new;
+	ht->array[index] = new;
 	return (1);
 }
 
