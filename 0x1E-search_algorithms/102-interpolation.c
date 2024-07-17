@@ -3,21 +3,21 @@
 /**
  * interpolation_search - searches for a value in a sorted array
  * @array: pointer to the first element of the array
- * @size: the number of elements in an array
- * @value: the value to search for
- * Return: first index where value is located
+ * @size: size of the array
+ * @value: the value to search
+ * Return: first index of value
  */
 
 int interpolation_search(int *array, size_t size, int value)
 {
-	size_t i, l, r;
+	size_t i, l, h;
 
 	if (array == NULL)
 		return (-1);
 
-	for (l = 0, r = size - 1; r >= l;)
+	for (l = 0, h = size - 1; h >= l;)
 	{
-		i = l + (((double)(r - l) / (array[r] - array[l])) * (value - array[l]));
+		i = l + (((double)(h - l) / (array[h] - array[l])) * (value - array[l]));
 		if (i < size)
 			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		else
@@ -29,7 +29,7 @@ int interpolation_search(int *array, size_t size, int value)
 		if (array[i] == value)
 			return (i);
 		if (array[i] > value)
-			r = i - 1;
+			h = i - 1;
 		else
 			l = i + 1;
 	}
