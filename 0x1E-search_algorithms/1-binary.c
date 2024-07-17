@@ -5,30 +5,30 @@
  * @array: pointer to the first element of the array
  * @size: size of the array
  * @value: value to search 
- * Return: index of value || -1 if not found
+ * Return: -1 if not found, or  index of value
  */
 
 int binary_search(int *array, size_t size, int value)
 {
-	size_t i, r, l;
+	size_t i, right, left;
 
 	if (array == NULL)
 		return (-1);
 
-	for (l = 0, r = size - 1; r >= l;)
+	for (left = 0, right = size - 1; right >= left;)
 	{
 		printf("Searching in array: ");
-		for (i = l; i < r; i++)
+		for (i = left; i < right; i++)
 			printf("%d, ", array[i]);
 		printf("%d\n", array[i]);
 
-		i = l + (r - l) / 2;
+		i = left + (right - left) / 2;
 		if (array[i] == value)
 			return (i);
 		if (array[i] > value)
-			r = i - 1;
+			right = i - 1;
 		else
-			l = i + 1;
+			left = i + 1;
 	}
 	return (-1);
 }
